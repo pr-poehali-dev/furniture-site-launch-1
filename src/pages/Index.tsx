@@ -103,7 +103,7 @@ const Index = () => {
     { icon: "Award", text: "Опыт работы более 10 лет" },
     { icon: "Shield", text: "Гарантия на все работы" },
     { icon: "Clock", text: "Точность по времени" },
-    { icon: "ThumbsUp", text: "Качественные материалы и инструменты" },
+    { icon: "Wrench", text: "Установка бытовой техники" },
     { icon: "MapPin", text: "Выезд в Балашиху и ближайшую Москву" },
     { icon: "Users", text: "Более 500 довольных клиентов" }
   ];
@@ -137,7 +137,7 @@ const Index = () => {
               Профессиональная сборка кухонь в Балашихе и Москве
             </h2>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Быстро, качественно и с гарантией. Собираю кухонные гарнитуры любой сложности — от простых до премиум-класса.
+              Быстро, качественно и с гарантией. Собираю кухонные гарнитуры любой сложности + установка бытовой техники.
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Button onClick={handleWhatsAppClick} size="lg" className="text-lg px-8 py-6">
@@ -243,6 +243,9 @@ const Index = () => {
                 <p>
                   Работаю в <strong>Балашихе и ближайших районах Москвы</strong>. Гарантирую качественную установку кухонь с соблюдением всех технологий: навеска верхних и нижних модулей, установка фасадов, регулировка петель, монтаж столешницы и фартука.
                 </p>
+                <p>
+                  <strong>Дополнительно устанавливаю бытовую технику:</strong> посудомоечные машины, стиральные машины, вытяжки, духовые шкафы, варочные панели, холодильники и другую встраиваемую технику.
+                </p>
                 <div className="bg-blue-50 p-6 rounded-lg mt-6">
                   <h4 className="font-bold text-xl mb-3 text-secondary">Почему выбирают меня для сборки кухонь:</h4>
                   <ul className="space-y-2">
@@ -257,6 +260,10 @@ const Index = () => {
                     <li className="flex items-start gap-2">
                       <Icon name="CheckCircle" className="text-primary mt-1 flex-shrink-0" size={20} />
                       <span>Гарантия на все виды работ по сборке кухни</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Icon name="CheckCircle" className="text-primary mt-1 flex-shrink-0" size={20} />
+                      <span>Установка бытовой техники (посудомойки, стиралки, вытяжки)</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Icon name="CheckCircle" className="text-primary mt-1 flex-shrink-0" size={20} />
