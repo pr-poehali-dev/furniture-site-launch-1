@@ -1,11 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
 import Icon from "@/components/ui/icon";
+import { useState } from "react";
 
 const Index = () => {
   const whatsappNumber = "79680707527";
   const telegramChannel = "https://t.me/mebel_Moskow77";
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    message: ""
+  });
 
   const handleWhatsAppClick = () => {
     window.open(`https://wa.me/${whatsappNumber}?text=Здравствуйте! Хочу заказать сборку мебели`, '_blank');
@@ -13,6 +23,17 @@ const Index = () => {
 
   const handleTelegramClick = () => {
     window.open(telegramChannel, '_blank');
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const message = `Новая заявка с сайта:%0A%0AИмя: ${formData.name}%0AТелефон: ${formData.phone}%0AСообщение: ${formData.message}`;
+    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+    toast({
+      title: "Заявка отправлена!",
+      description: "Мастер свяжется с вами в ближайшее время.",
+    });
+    setFormData({ name: "", phone: "", message: "" });
   };
 
   const services = [
@@ -269,41 +290,97 @@ const Index = () => {
 
       <section id="contact" className="py-20 bg-gradient-to-b from-white to-blue-50">
         <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto text-center">
-            <h3 className="text-4xl font-bold mb-4 text-secondary">Вызвать мастера</h3>
-            <p className="text-xl text-muted-foreground mb-8">
-              Свяжитесь со мной удобным способом
-            </p>
-            <Card className="border-2 shadow-lg">
-              <CardContent className="p-8">
-                <div className="space-y-6">
-                  <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
-                    <Icon name="MapPin" className="text-primary flex-shrink-0" size={28} />
-                    <div className="text-left">
-                      <p className="font-semibold text-lg">География работы</p>
-                      <p className="text-muted-foreground">Балашиха и ближайшие районы Москвы</p>
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h3 className="text-4xl font-bold mb-4 text-secondary">Вызвать мастера</h3>
+              <p className="text-xl text-muted-foreground">
+                Оставьте заявку или свяжитесь удобным способом
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8">
+              <Card className="border-2 shadow-lg">
+                <CardHeader>
+                  <CardTitle className="text-2xl">Быстрая заявка</CardTitle>
+                  <CardDescription>Заполните форму и я свяжусь с вами</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div>
+                      <label className="text-sm font-medium mb-2 block">Ваше имя</label>
+                      <Input 
+                        placeholder="Как к вам обращаться?"
+                        value={formData.name}
+                        onChange={(e) => setFormData({...formData, name: e.target.value})}
+                        required
+                      />
                     </div>
-                  </div>
-                  <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
-                    <Icon name="Clock" className="text-primary flex-shrink-0" size={28} />
-                    <div className="text-left">
-                      <p className="font-semibold text-lg">График работы</p>
-                      <p className="text-muted-foreground">Ежедневно с 9:00 до 21:00</p>
+                    <div>
+                      <label className="text-sm font-medium mb-2 block">Телефон</label>
+                      <Input 
+                        type="tel"
+                        placeholder="+7 (___) ___-__-__"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                        required
+                      />
                     </div>
-                  </div>
-                  <div className="pt-6 space-y-4">
+                    <div>
+                      <label className="text-sm font-medium mb-2 block">Какую мебель нужно собрать?</label>
+                      <Textarea 
+                        placeholder="Опишите ваш заказ..."
+                        value={formData.message}
+                        onChange={(e) => setFormData({...formData, message: e.target.value})}
+                        rows={4}
+                        required
+                      />
+                    </div>
+                    <Button type="submit" size="lg" className="w-full text-lg py-6">
+                      <Icon name="Send" className="mr-2" size={20} />
+                      Отправить заявку
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
+
+              <div className="space-y-6">
+                <Card className="border-2 shadow-lg">
+                  <CardContent className="p-6">
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+                        <Icon name="MapPin" className="text-primary flex-shrink-0" size={28} />
+                        <div className="text-left">
+                          <p className="font-semibold text-lg">География работы</p>
+                          <p className="text-muted-foreground">Балашиха и ближайшие районы Москвы</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+                        <Icon name="Clock" className="text-primary flex-shrink-0" size={28} />
+                        <div className="text-left">
+                          <p className="font-semibold text-lg">График работы</p>
+                          <p className="text-muted-foreground">Ежедневно с 9:00 до 21:00</p>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-2 shadow-lg">
+                  <CardHeader>
+                    <CardTitle className="text-xl">Или напишите напрямую</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
                     <Button onClick={handleWhatsAppClick} size="lg" className="w-full text-lg py-6 bg-[#25D366] hover:bg-[#20BA5A]">
                       <Icon name="MessageCircle" className="mr-3" size={24} />
-                      Написать в WhatsApp
+                      WhatsApp
                     </Button>
                     <Button onClick={handleTelegramClick} variant="outline" size="lg" className="w-full text-lg py-6 border-2">
                       <Icon name="Send" className="mr-3" size={24} />
-                      Перейти в Telegram канал
+                      Telegram
                     </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
           </div>
         </div>
       </section>
