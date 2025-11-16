@@ -27,7 +27,7 @@ const Index = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const message = `Новая заявка с сайта:%0A%0AИмя: ${formData.name}%0AТелефон: ${formData.phone}%0AСообщение: ${formData.message}`;
+    const message = `Здравствуйте! Хочу заказать сборку кухни.%0A%0AМеня зовут: ${formData.name}%0AМой телефон: ${formData.phone}%0A%0AДетали заказа:%0A${formData.message}`;
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
     toast({
       title: "Заявка отправлена!",
@@ -309,9 +309,9 @@ const Index = () => {
                       />
                     </div>
                     <div>
-                      <label className="text-sm font-medium mb-2 block">Какую мебель нужно собрать?</label>
+                      <label className="text-sm font-medium mb-2 block">Опишите кратко какую услугу вы хотите получить</label>
                       <Textarea 
-                        placeholder="Опишите ваш заказ..."
+                        placeholder="Например: установка угловой кухни 3x2м, регулировка фасадов и т.д."
                         value={formData.message}
                         onChange={(e) => setFormData({...formData, message: e.target.value})}
                         rows={4}
