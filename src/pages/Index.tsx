@@ -4,8 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
 
 const Index = () => {
-  const whatsappNumber = "79000000000";
-  const telegramChannel = "https://t.me/yourtelegram";
+  const whatsappNumber = "79680707527";
+  const telegramChannel = "https://t.me/mebel_Moskow77";
 
   const handleWhatsAppClick = () => {
     window.open(`https://wa.me/${whatsappNumber}?text=Здравствуйте! Хочу заказать сборку мебели`, '_blank');
