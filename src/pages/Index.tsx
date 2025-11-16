@@ -18,7 +18,7 @@ const Index = () => {
   });
 
   const handleWhatsAppClick = () => {
-    window.open(`https://wa.me/${whatsappNumber}?text=Здравствуйте! Хочу заказать сборку мебели`, '_blank');
+    window.open(`https://wa.me/${whatsappNumber}?text=Здравствуйте! Нужен мастер на час`, '_blank');
   };
 
   const handleTelegramClick = () => {
@@ -27,7 +27,7 @@ const Index = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const message = `Здравствуйте! Хочу заказать сборку кухни.%0A%0AМеня зовут: ${formData.name}%0AМой телефон: ${formData.phone}%0A%0AДетали заказа:%0A${formData.message}`;
+    const message = `Здравствуйте! Нужен мастер на час.%0A%0AМеня зовут: ${formData.name}%0AМой телефон: ${formData.phone}%0A%0AЧто нужно сделать:%0A${formData.message}`;
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
     toast({
       title: "Заявка отправлена!",
@@ -36,47 +36,80 @@ const Index = () => {
     setFormData({ name: "", phone: "", message: "" });
   };
 
+  const services = [
+    {
+      icon: "Hammer",
+      title: "Сборка мебели",
+      description: "Шкафы, кровати, столы, комоды любой сложности"
+    },
+    {
+      icon: "Box",
+      title: "Установка кухонь",
+      description: "Сборка кухонных гарнитуров, регулировка фасадов"
+    },
+    {
+      icon: "Zap",
+      title: "Установка техники",
+      description: "Стиральные машины, посудомойки, вытяжки, духовки"
+    },
+    {
+      icon: "Drill",
+      title: "Мелкий ремонт",
+      description: "Полки, карнизы, картины, зеркала, светильники"
+    },
+    {
+      icon: "Wrench",
+      title: "Сантехника",
+      description: "Смесители, сифоны, подключение стиралок и посудомоек"
+    },
+    {
+      icon: "PaintBucket",
+      title: "Косметический ремонт",
+      description: "Покраска, поклейка обоев, мелкие работы"
+    }
+  ];
+
   const testimonials = [
     {
       name: "Елена Соколова",
       location: "Балашиха",
       rating: 5,
-      text: "Владимир собрал кухню ИКЕА за один день! Все фасады выровнены идеально, ни одной щели. Работал аккуратно, убрал за собой. Очень довольны результатом!",
+      text: "Владимир собрал кухню ИКЕА и установил посудомойку за один день! Все фасады выровнены идеально. Работал аккуратно, убрал за собой. Очень довольны!",
       date: "2 недели назад"
     },
     {
       name: "Дмитрий Волков",
       location: "Москва, Новокосино",
       rating: 5,
-      text: "Заказывал сборку угловой кухни с встроенной техникой. Владимир — настоящий профессионал! Выровнял все фасады идеально, установил посудомойку и духовку. Цена честная, без доплат.",
+      text: "Вызывал мастера повесить телевизор, полки и карниз. Владимир — настоящий профессионал! Все сделал быстро, ровно, без пыли. Цена честная, без доплат.",
       date: "1 месяц назад"
     },
     {
       name: "Анна Петрова",
       location: "Балашиха",
       rating: 5,
-      text: "Собирали большую кухню от Леруа Мерлен. Мастер приехал вовремя, работал два дня. Все петли отрегулированы, ящики выдвигаются плавно. Кухня как с картинки!",
+      text: "Нужно было собрать шкаф-купе и установить стиральную машину. Мастер приехал вовремя, все сделал за 3 часа. Теперь обращаюсь только к нему!",
       date: "3 недели назад"
     },
     {
       name: "Сергей Михайлов",
       location: "Москва, Реутов",
       rating: 5,
-      text: "Уже второй раз заказываю сборку кухни у Владимира — первый раз для себя, сейчас для мамы. Всегда качественно и в срок. Знает все нюансы установки. Мой постоянный мастер!",
+      text: "Уже третий раз вызываю Владимира для разных задач — сборка мебели, установка светильников, замена смесителя. Всегда качественно и в срок. Мой постоянный мастер!",
       date: "1 неделю назад"
     },
     {
       name: "Ольга Иванова",
       location: "Балашиха",
       rating: 5,
-      text: "Большое спасибо за работу! Собрал кухню премиум-класса с итальянскими фасадами за 3 дня. Всё крепко, надежно, красиво. Даже дал советы по эксплуатации.",
+      text: "Большое спасибо за работу! Повесил зеркала, картины, установил карниз и собрал комод. Всё аккуратно и быстро. Приятный и вежливый человек.",
       date: "2 месяца назад"
     },
     {
       name: "Игорь Смирнов",
       location: "Москва, Железнодорожный",
       rating: 5,
-      text: "Нужно было срочно собрать кухню к заезду в новую квартиру — Владимир выручил! Приехал на следующий день, собрал всё быстро и качественно. Рекомендую!",
+      text: "Нужно было срочно установить вытяжку и собрать мебель к заезду в новую квартиру — Владимир выручил! Приехал на следующий день, все сделал быстро и качественно!",
       date: "3 недели назад"
     }
   ];
@@ -102,9 +135,9 @@ const Index = () => {
   const advantages = [
     { icon: "Award", text: "Опыт работы более 10 лет" },
     { icon: "Shield", text: "Гарантия на все работы" },
-    { icon: "Clock", text: "Точность по времени" },
-    { icon: "Wrench", text: "Установка бытовой техники" },
-    { icon: "MapPin", text: "Выезд в Балашиху и ближайшую Москву" },
+    { icon: "Clock", text: "Выезд в день обращения" },
+    { icon: "Wrench", text: "Весь инструмент с собой" },
+    { icon: "MapPin", text: "Балашиха и ближайшая Москва" },
     { icon: "Users", text: "Более 500 довольных клиентов" }
   ];
 
@@ -134,10 +167,10 @@ const Index = () => {
           <div className="max-w-4xl mx-auto text-center">
             <Badge className="mb-4 text-base px-4 py-1">10+ лет опыта</Badge>
             <h2 className="text-5xl md:text-6xl font-bold mb-6 text-secondary leading-tight">
-              Профессиональная сборка кухонь в Балашихе и Москве
+              Муж на час в Балашихе и Москве
             </h2>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Быстро, качественно и с гарантией. Собираю кухонные гарнитуры любой сложности + установка бытовой техники.
+              Все виды мелкого ремонта, сборка мебели, установка техники и бытовые услуги. Быстро, качественно и с гарантией.
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Button onClick={handleWhatsAppClick} size="lg" className="text-lg px-8 py-6">
@@ -166,11 +199,31 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="testimonials" className="py-20">
+      <section id="services" className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h3 className="text-4xl font-bold mb-4 text-secondary">Услуги</h3>
+            <p className="text-xl text-muted-foreground">Решу любые бытовые задачи</p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((service, index) => (
+              <Card key={index} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-2 hover:border-primary">
+                <CardHeader>
+                  <Icon name={service.icon} className="text-primary mb-3" size={40} />
+                  <CardTitle className="text-xl">{service.title}</CardTitle>
+                  <CardDescription className="text-base">{service.description}</CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="testimonials" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h3 className="text-4xl font-bold mb-4 text-secondary">Отзывы клиентов</h3>
-            <p className="text-xl text-muted-foreground">Более 500 довольных клиентов за 10 лет работы</p>
+            <p className="text-xl text-muted-foreground">Более 500 выполненных заказов за 10 лет работы</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {testimonials.map((testimonial, index) => (
@@ -200,7 +253,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="portfolio" className="py-20 bg-gray-50">
+      <section id="portfolio" className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h3 className="text-4xl font-bold mb-4 text-secondary">Портфолио работ</h3>
@@ -234,40 +287,41 @@ const Index = () => {
             </div>
             <Card className="border-2">
               <CardHeader>
-                <CardTitle className="text-2xl">Владимир — профессиональный мастер по сборке кухонь</CardTitle>
+                <CardTitle className="text-2xl">Владимир — мастер на час с опытом 10+ лет</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4 text-lg leading-relaxed">
                 <p>
-                  Занимаюсь профессиональной сборкой кухонь уже более <strong>10 лет</strong>. За это время собрал более 500 кухонных гарнитуров самой разной сложности — от бюджетных до премиум-класса с встроенной техникой.
+                  Помогаю людям с бытовыми задачами уже более <strong>10 лет</strong>. За это время выполнил более 500 заказов: от сборки мебели и установки техники до мелкого ремонта и сантехнических работ.
                 </p>
                 <p>
-                  Работаю в <strong>Балашихе и ближайших районах Москвы</strong>. Гарантирую качественную установку кухонь с соблюдением всех технологий: навеска верхних и нижних модулей, установка фасадов, регулировка петель, монтаж столешницы и фартука.
-                </p>
-                <p>
-                  <strong>Дополнительно устанавливаю бытовую технику:</strong> посудомоечные машины, стиральные машины, вытяжки, духовые шкафы, варочные панели, холодильники и другую встраиваемую технику.
+                  Работаю в <strong>Балашихе и ближайших районах Москвы</strong>. Выезжаю в день обращения, весь инструмент всегда с собой. Работаю аккуратно, убираю за собой, даю гарантию на все виды работ.
                 </p>
                 <div className="bg-blue-50 p-6 rounded-lg mt-6">
-                  <h4 className="font-bold text-xl mb-3 text-secondary">Почему выбирают меня для сборки кухонь:</h4>
+                  <h4 className="font-bold text-xl mb-3 text-secondary">Что я делаю:</h4>
                   <ul className="space-y-2">
                     <li className="flex items-start gap-2">
                       <Icon name="CheckCircle" className="text-primary mt-1 flex-shrink-0" size={20} />
-                      <span>Большой опыт работы с кухнями любых производителей и конфигураций</span>
+                      <span>Сборка любой мебели: шкафы, кровати, кухни, столы, комоды</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Icon name="CheckCircle" className="text-primary mt-1 flex-shrink-0" size={20} />
-                      <span>Идеальная регулировка фасадов и выравнивание всех элементов</span>
+                      <span>Установка бытовой техники: стиралки, посудомойки, вытяжки, духовки</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Icon name="CheckCircle" className="text-primary mt-1 flex-shrink-0" size={20} />
-                      <span>Гарантия на все виды работ по сборке кухни</span>
+                      <span>Навес полок, картин, зеркал, карнизов, светильников, телевизоров</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Icon name="CheckCircle" className="text-primary mt-1 flex-shrink-0" size={20} />
-                      <span>Установка бытовой техники (посудомойки, стиралки, вытяжки)</span>
+                      <span>Мелкий ремонт: замена смесителей, розеток, дверных ручек и замков</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Icon name="CheckCircle" className="text-primary mt-1 flex-shrink-0" size={20} />
-                      <span>Честные цены без скрытых доплат за сложные элементы</span>
+                      <span>Косметический ремонт: покраска, поклейка обоев, мелкие работы</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Icon name="CheckCircle" className="text-primary mt-1 flex-shrink-0" size={20} />
+                      <span>Честные цены без скрытых доплат</span>
                     </li>
                   </ul>
                 </div>
@@ -316,9 +370,9 @@ const Index = () => {
                       />
                     </div>
                     <div>
-                      <label className="text-sm font-medium mb-2 block">Опишите кратко какую услугу вы хотите получить</label>
+                      <label className="text-sm font-medium mb-2 block">Что нужно сделать?</label>
                       <Textarea 
-                        placeholder="Например: установка угловой кухни 3x2м, регулировка фасадов и т.д."
+                        placeholder="Например: собрать шкаф, повесить полки, установить стиральную машину и т.д."
                         value={formData.message}
                         onChange={(e) => setFormData({...formData, message: e.target.value})}
                         rows={4}
@@ -383,7 +437,7 @@ const Index = () => {
               <Icon name="Wrench" size={32} />
               <h4 className="text-2xl font-bold">Мастер Владимир</h4>
             </div>
-            <p className="text-lg">Профессиональная сборка кухонь в Балашихе и Москве</p>
+            <p className="text-lg">Муж на час в Балашихе и Москве — все виды бытовых услуг</p>
             <p className="text-sm text-gray-300">Опыт работы более 10 лет • Гарантия качества</p>
             <div className="flex gap-4 justify-center pt-4">
               <Button onClick={handleWhatsAppClick} variant="outline" className="border-white text-white hover:bg-white hover:text-secondary">
