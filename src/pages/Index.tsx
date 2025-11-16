@@ -83,19 +83,19 @@ const Index = () => {
 
   const portfolio = [
     {
-      image: "https://cdn.poehali.dev/projects/073b4f17-30a9-4a07-a940-27799c882823/files/51c57881-f0f7-4ba5-a022-daf11ff6da7a.jpg",
-      title: "Шкаф-купе",
-      description: "Балашиха, 3 дня работы"
+      image: "https://cdn.poehali.dev/projects/073b4f17-30a9-4a07-a940-27799c882823/files/493cb4a9-fa8c-46ef-96ac-44f8e861d2d5.jpg",
+      title: "Современная кухня",
+      description: "Балашиха, установка за 2 дня"
     },
     {
-      image: "https://cdn.poehali.dev/projects/073b4f17-30a9-4a07-a940-27799c882823/files/5e367ac1-4f16-42ad-b0e2-8f5c6bda948d.jpg",
+      image: "https://cdn.poehali.dev/projects/073b4f17-30a9-4a07-a940-27799c882823/files/495ae78b-7dac-49e5-827e-3467f15139b8.jpg",
       title: "Кухонный гарнитур",
-      description: "Москва, установка + регулировка"
+      description: "Москва, полная установка + регулировка"
     },
     {
-      image: "https://cdn.poehali.dev/projects/073b4f17-30a9-4a07-a940-27799c882823/files/05752b45-4c1e-49a6-87a7-729ecf7e77a4.jpg",
-      title: "Рабочее место",
-      description: "Профессиональный подход"
+      image: "https://cdn.poehali.dev/projects/073b4f17-30a9-4a07-a940-27799c882823/files/345bc2fc-fe5d-413a-8993-40e40f583ef5.jpg",
+      title: "Премиум кухня",
+      description: "Сложная установка с идеальной подгонкой"
     }
   ];
 
@@ -134,10 +134,10 @@ const Index = () => {
           <div className="max-w-4xl mx-auto text-center">
             <Badge className="mb-4 text-base px-4 py-1">10+ лет опыта</Badge>
             <h2 className="text-5xl md:text-6xl font-bold mb-6 text-secondary leading-tight">
-              Профессиональная сборка мебели в Балашихе и Москве
+              Профессиональная сборка кухонь в Балашихе и Москве
             </h2>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Быстро, качественно и с гарантией. Работаю с мебелью любой сложности — от простых комодов до кухонных гарнитуров.
+              Быстро, качественно и с гарантией. Собираю кухонные гарнитуры любой сложности — от простых до премиум-класса.
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Button onClick={handleWhatsAppClick} size="lg" className="text-lg px-8 py-6">
@@ -234,33 +234,33 @@ const Index = () => {
             </div>
             <Card className="border-2">
               <CardHeader>
-                <CardTitle className="text-2xl">Владимир — профессиональный сборщик мебели</CardTitle>
+                <CardTitle className="text-2xl">Владимир — профессиональный мастер по сборке кухонь</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4 text-lg leading-relaxed">
                 <p>
-                  Занимаюсь профессиональной сборкой мебели уже более <strong>10 лет</strong>. За это время собрал более 500 единиц мебели самой разной сложности — от простых комодов до сложных кухонных гарнитуров и встроенных шкафов-купе.
+                  Занимаюсь профессиональной сборкой кухонь уже более <strong>10 лет</strong>. За это время собрал более 500 кухонных гарнитуров самой разной сложности — от бюджетных до премиум-класса с встроенной техникой.
                 </p>
                 <p>
-                  Работаю в <strong>Балашихе и ближайших районах Москвы</strong>. Гарантирую качественную и быструю сборку с соблюдением всех технологий. Использую только профессиональный инструмент.
+                  Работаю в <strong>Балашихе и ближайших районах Москвы</strong>. Гарантирую качественную установку кухонь с соблюдением всех технологий: навеска верхних и нижних модулей, установка фасадов, регулировка петель, монтаж столешницы и фартука.
                 </p>
                 <div className="bg-blue-50 p-6 rounded-lg mt-6">
-                  <h4 className="font-bold text-xl mb-3 text-secondary">Почему выбирают меня:</h4>
+                  <h4 className="font-bold text-xl mb-3 text-secondary">Почему выбирают меня для сборки кухонь:</h4>
                   <ul className="space-y-2">
                     <li className="flex items-start gap-2">
                       <Icon name="CheckCircle" className="text-primary mt-1 flex-shrink-0" size={20} />
-                      <span>Большой опыт работы с мебелью любых производителей</span>
+                      <span>Большой опыт работы с кухнями любых производителей и конфигураций</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Icon name="CheckCircle" className="text-primary mt-1 flex-shrink-0" size={20} />
-                      <span>Выезд на объект в удобное для вас время</span>
+                      <span>Идеальная регулировка фасадов и выравнивание всех элементов</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Icon name="CheckCircle" className="text-primary mt-1 flex-shrink-0" size={20} />
-                      <span>Гарантия на все виды работ</span>
+                      <span>Гарантия на все виды работ по сборке кухни</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Icon name="CheckCircle" className="text-primary mt-1 flex-shrink-0" size={20} />
-                      <span>Честные цены без скрытых доплат</span>
+                      <span>Честные цены без скрытых доплат за сложные элементы</span>
                     </li>
                   </ul>
                 </div>
@@ -376,7 +376,7 @@ const Index = () => {
               <Icon name="Wrench" size={32} />
               <h4 className="text-2xl font-bold">Мастер Владимир</h4>
             </div>
-            <p className="text-lg">Профессиональная сборка мебели в Балашихе и Москве</p>
+            <p className="text-lg">Профессиональная сборка кухонь в Балашихе и Москве</p>
             <p className="text-sm text-gray-300">Опыт работы более 10 лет • Гарантия качества</p>
             <div className="flex gap-4 justify-center pt-4">
               <Button onClick={handleWhatsAppClick} variant="outline" className="border-white text-white hover:bg-white hover:text-secondary">
