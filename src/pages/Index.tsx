@@ -36,42 +36,48 @@ const Index = () => {
     setFormData({ name: "", phone: "", message: "" });
   };
 
-  const services = [
+  const testimonials = [
     {
-      icon: "Armchair",
-      title: "Корпусная мебель",
-      description: "Шкафы, комоды, стенки, тумбы любой сложности",
-      price: "от 1500 ₽"
+      name: "Елена Соколова",
+      location: "Балашиха",
+      rating: 5,
+      text: "Владимир собрал большой шкаф-купе за один день! Всё аккуратно, быстро, без пыли. Очень доволен работой, рекомендую!",
+      date: "2 недели назад"
     },
     {
-      icon: "BedDouble",
-      title: "Мягкая мебель",
-      description: "Кровати, диваны, кресла с механизмами",
-      price: "от 2000 ₽"
+      name: "Дмитрий Волков",
+      location: "Москва, Новокосино",
+      rating: 5,
+      text: "Заказывал сборку кухни. Владимир — настоящий профессионал! Выровнял все фасады идеально, объяснил как ухаживать. Цена честная, без доплат.",
+      date: "1 месяц назад"
     },
     {
-      icon: "Box",
-      title: "Кухонные гарнитуры",
-      description: "Установка кухонь, навеска фасадов, регулировка",
-      price: "от 3000 ₽"
+      name: "Анна Петрова",
+      location: "Балашиха",
+      rating: 5,
+      text: "Собирали детскую мебель для двоих детей. Мастер приехал вовремя, работал аккуратно, дети теперь в восторге от новой комнаты!",
+      date: "3 недели назад"
     },
     {
-      icon: "Home",
-      title: "Офисная мебель",
-      description: "Столы, стеллажи, офисные системы",
-      price: "от 1200 ₽"
+      name: "Сергей Михайлов",
+      location: "Москва, Реутов",
+      rating: 5,
+      text: "Уже третий раз обращаюсь к Владимиру. Собирал и офисную мебель, и домашнюю. Всегда качественно и в срок. Мой постоянный мастер!",
+      date: "1 неделю назад"
     },
     {
-      icon: "Baby",
-      title: "Детская мебель",
-      description: "Кроватки, комоды, игровые комплексы",
-      price: "от 1800 ₽"
+      name: "Ольга Иванова",
+      location: "Балашиха",
+      rating: 5,
+      text: "Большое спасибо за работу! Собрал мебель для всей квартиры за 2 дня. Всё крепко, надежно. Приятный и вежливый человек.",
+      date: "2 месяца назад"
     },
     {
-      icon: "Sofa",
-      title: "Встроенная мебель",
-      description: "Шкафы-купе, гардеробные системы",
-      price: "от 2500 ₽"
+      name: "Игорь Смирнов",
+      location: "Москва, Железнодорожный",
+      rating: 5,
+      text: "Нужно было срочно собрать мебель к выходным — Владимир выручил! Приехал на следующий день, собрал всё быстро и качественно. Рекомендую!",
+      date: "3 недели назад"
     }
   ];
 
@@ -160,22 +166,33 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="services" className="py-20">
+      <section id="testimonials" className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h3 className="text-4xl font-bold mb-4 text-secondary">Услуги</h3>
-            <p className="text-xl text-muted-foreground">Работаю с любыми типами мебели</p>
+            <h3 className="text-4xl font-bold mb-4 text-secondary">Отзывы клиентов</h3>
+            <p className="text-xl text-muted-foreground">Более 500 довольных клиентов за 10 лет работы</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-2 hover:border-primary">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                 <CardHeader>
-                  <Icon name={service.icon} className="text-primary mb-3" size={40} />
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
-                  <CardDescription className="text-base">{service.description}</CardDescription>
+                  <div className="flex justify-between items-start mb-3">
+                    <div>
+                      <CardTitle className="text-lg">{testimonial.name}</CardTitle>
+                      <p className="text-sm text-muted-foreground">{testimonial.location}</p>
+                    </div>
+                    <div className="flex gap-1">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Icon key={i} name="Star" className="text-yellow-500 fill-yellow-500" size={16} />
+                      ))}
+                    </div>
+                  </div>
+                  <CardDescription className="text-base leading-relaxed">
+                    "{testimonial.text}"
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-2xl font-bold text-primary">{service.price}</p>
+                  <p className="text-sm text-muted-foreground">{testimonial.date}</p>
                 </CardContent>
               </Card>
             ))}
@@ -253,40 +270,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="prices" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h3 className="text-4xl font-bold mb-4 text-secondary">Цены на услуги</h3>
-            <p className="text-xl text-muted-foreground">Прозрачное ценообразование</p>
-          </div>
-          <div className="max-w-4xl mx-auto">
-            <Card>
-              <CardContent className="p-8">
-                <div className="space-y-6">
-                  {services.map((service, index) => (
-                    <div key={index} className="flex justify-between items-center py-4 border-b last:border-b-0">
-                      <div className="flex items-center gap-4">
-                        <Icon name={service.icon} className="text-primary" size={32} />
-                        <div>
-                          <p className="font-semibold text-lg">{service.title}</p>
-                          <p className="text-muted-foreground">{service.description}</p>
-                        </div>
-                      </div>
-                      <p className="text-2xl font-bold text-primary">{service.price}</p>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-8 p-6 bg-blue-50 rounded-lg">
-                  <p className="text-center text-lg">
-                    <Icon name="Info" className="inline mr-2 text-primary" size={20} />
-                    Точная стоимость рассчитывается индивидуально после осмотра или по фото
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+
 
       <section id="contact" className="py-20 bg-gradient-to-b from-white to-blue-50">
         <div className="container mx-auto px-4">
